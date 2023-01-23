@@ -58,6 +58,7 @@
 --   to read data from multiple tables in each `SELECT` statement.
 --   Formatting does not matter.
 
+
 -- Submission
 -- 
 -- - "Use this template" to create a brand-new "hw1" repository in your
@@ -101,13 +102,90 @@
 
 -- Drop existing tables, so you'll start fresh each time this script is run.
 -- TODO!
+DROP TABLE IF EXISTS Movies;
+DROP TABLE IF EXISTS Cast;
+DROP TABLE IF EXISTS Studio;
 
 -- Create new tables, according to your domain model
 -- TODO!
+CREATE TABLE Movies (
+  id INTEGER PRIMARY KEY AUTOINCREMENT,
+  title TEXT,
+  year_released INTEGER,
+  MPAA_rating TEXT,
+  studio TEXT
+);
 
+CREATE TABLE Cast (
+  id INTEGER PRIMARY KEY AUTOINCREMENT,
+  movies_id INTEGER,
+  movies_title TEXT,
+  cast_name TEXT,
+  role_name TEXT
+);
+
+CREATE TABLE Studio (
+  id INTEGER PRIMARY KEY AUTOINCREMENT,
+  movies_id INTEGER,
+  studio_name TEXT
+);
 -- Insert data into your database that reflects the sample data shown above
 -- Use hard-coded foreign key IDs when necessary
 -- TODO!
+INSERT INTO Movies (
+  title,
+  year_released,
+  MPAA_rating,
+  studio
+)
+VALUES (
+  "Batman Begins",
+  " 2005",
+  "PG-13",
+  "Warner Bros"
+);
+
+INSERT INTO Movies (
+  title,
+  year_released,
+  MPAA_rating,
+  studio
+)
+VALUES (
+  "The Dark Knight",
+  " 2008",
+  "PG-13",
+  "Warner Bros"
+);
+
+INSERT INTO Movies (
+  title,
+  year_released,
+  MPAA_rating,
+  studio
+)
+VALUES (
+  "The Dark Knight Rises",
+  " 2012",
+  "PG-13",
+  "Warner Bros"
+);
+
+INSERT INTO Cast (
+  movies_title,
+  cast_name,
+  role_name
+)
+VALUES (
+  "Batman Begins",
+  "Christian Bale",
+  "Bruce Wayne"
+);
+
+
+
+
+
 
 -- Prints a header for the movies output
 .print "Movies"
